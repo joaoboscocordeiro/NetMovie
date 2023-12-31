@@ -6,7 +6,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.jbc.appnetmovie.R
 
 /*
- * Created by João Bosco on 27/12/2023.
+ * Created by Joao Bosco on 27/12/2023.
  */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
