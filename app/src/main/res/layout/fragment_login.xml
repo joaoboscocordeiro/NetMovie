@@ -47,8 +47,9 @@
             style="@style/ThemeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
             android:layout_marginTop="32dp"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="12dp"
             android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,8 +61,9 @@
             style="@style/ThemeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
             android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/ic_password"
+            android:drawablePadding="12dp"
             android:hint="@string/hint_password"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +82,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_login_password" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/progress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginVertical="16dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/text_forgot_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_login_sign_in"
+            app:layout_constraintVertical_bias="0.0"
+            tools:src="@drawable/loading"
+            tools:visibility="visible" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_forgot_login"
             android:layout_width="wrap_content"
@@ -91,7 +107,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_login_sign_in" />
+            app:layout_constraintTop_toBottomOf="@id/progress" />
 
         <LinearLayout
             android:id="@+id/linear_or_login"

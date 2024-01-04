@@ -5,6 +5,7 @@
     <string name="hint_email">E-mail:</string>
     <string name="hint_password">Password:</string>
     <string name="btn_sign_up">Sign up</string>
+    <string name="btn_next">Next</string>
     <string name="btn_sign_in">Sign in</string>
 
     <!-- Screen Onboarding Fragment -->
@@ -25,5 +26,8 @@
     <!-- Screen Login Fragment -->
     <string name="text_login_to_your_account">Login to Your Account</string>
     <string name="text_forgot_the_password">Forgot the password?</string>
+
+    <!-- Screen Forgot Fragment -->
+    <string name="text_create_your_new_password">Create Your New Password</string>
 
 </resources>
