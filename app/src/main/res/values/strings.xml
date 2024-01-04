@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">AppNetMovie</string>
 
+    <!-- Generic Strings -->
+    <string name="hint_email">E-mail:</string>
+    <string name="hint_password">Password:</string>
+    <string name="btn_sign_up">Sign up</string>
+    <string name="btn_sign_in">Sign in</string>
+
     <!-- Screen Onboarding Fragment -->
     <string name="btn_start">Start</string>
 
@@ -14,9 +20,10 @@
 
     <!-- Screen Register Fragment -->
     <string name="text_create_your_account">Create Your Account</string>
-    <string name="hint_register_email">E-mail:</string>
-    <string name="hint_register_password">Password:</string>
-    <string name="btn_sign_up">Sign up</string>
     <string name="text_or_continue_with">or continue with</string>
+
+    <!-- Screen Login Fragment -->
+    <string name="text_login_to_your_account">Login to Your Account</string>
+    <string name="text_forgot_the_password">Forgot the password?</string>
 
 </resources>
