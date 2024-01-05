@@ -30,4 +30,13 @@
     <!-- Screen Forgot Fragment -->
     <string name="text_create_your_new_password">Create Your New Password</string>
 
+    <!-- Errors Firebase -->
+    <string name="account_not_registered_register_fragment">Não existe nenhum registo que correspondente a este usuário</string>
+    <string name="invalid_email_register_fragment">O endereço de e-mail está mal formatado</string>
+    <string name="invalid_password_register_fragment">A senha é inválida ou o usuário não tem uma senha</string>
+    <string name="email_in_use_register_fragment">O endereço de e-mail já está sendo utilizado por outra conta</string>
+    <string name="strong_password_register_fragment">A senha deve ter pelo menos 6 caracteres</string>
+    <string name="access_to_this_account_has_been_temporarily_disabled">Bloqueámos todos os pedidos deste dispositivo devido a atividade anormal. Tente novamente mais tarde.</string>
+    <string name="error_generic">erro genérico</string>
+
 </resources>
