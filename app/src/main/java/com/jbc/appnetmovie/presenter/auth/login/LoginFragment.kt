@@ -1,5 +1,6 @@
 package com.jbc.appnetmovie.presenter.auth.login
 
+import androidx.fragment.app.viewModels
 import com.jbc.appnetmovie.R
 import com.jbc.appnetmovie.databinding.FragmentLoginBinding
 import com.jbc.appnetmovie.util.BaseFragment
@@ -14,5 +15,5 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
     FragmentLoginBinding::bind
 ) {
 
-    //private val viewModel: LoginViewModel by viewModels()
+    private val viewModel: LoginViewModel by viewModels()
 }
