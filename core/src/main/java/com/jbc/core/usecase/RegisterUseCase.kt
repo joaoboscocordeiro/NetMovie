@@ -7,10 +7,10 @@ import javax.inject.Inject
 /*
  * Created by Joao Bosco on 04/01/24.
  */
-class AuthUseCase @Inject constructor(
+class RegisterUseCase @Inject constructor(
     private val authRepository: AuthRepository
 ) {
     suspend operator fun invoke(email: String, password: String) {
-        return authRepository.login(email, password)
+        return authRepository.register(email, password)
     }
 }
