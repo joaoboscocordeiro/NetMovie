@@ -10,6 +10,8 @@ import com.jbc.appnetmovie.R
 import com.jbc.appnetmovie.databinding.FragmentLoginBinding
 import com.jbc.appnetmovie.util.BaseFragment
 import com.jbc.appnetmovie.util.StateView
+import com.jbc.appnetmovie.util.hideKeyboard
+import com.jbc.appnetmovie.util.isEmailValid
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
@@ -44,9 +46,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
         val email = binding?.editLoginEmail?.text.toString().trim()
         val password = binding?.editLoginPassword?.text.toString().trim()
 
-        if (email.isNotEmpty()) {
+        if (email.isEmailValid()) {
             if (password.isNotEmpty()) {
 
+                hideKeyboard()
                 login(email, password)
 
             } else {
@@ -54,6 +57,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
             }
         } else {
             binding?.editLoginEmail?.requestFocus()
+            Toast.makeText(requireContext(), "E-mail inválido.", Toast.LENGTH_SHORT).show()
         }
     }
 
