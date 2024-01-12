@@ -10,6 +10,8 @@ import com.jbc.appnetmovie.R
 import com.jbc.appnetmovie.databinding.FragmentRegisterBinding
 import com.jbc.appnetmovie.util.BaseFragment
 import com.jbc.appnetmovie.util.StateView
+import com.jbc.appnetmovie.util.hideKeyboard
+import com.jbc.appnetmovie.util.isEmailValid
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
@@ -44,9 +46,10 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
         val email = binding?.editRegisterEmail?.text.toString().trim()
         val password = binding?.editRegisterPassword?.text.toString().trim()
 
-        if (email.isNotEmpty()) {
+        if (email.isEmailValid()) {
             if (password.isNotEmpty()) {
 
+                hideKeyboard()
                 register(email, password)
 
             } else {
@@ -54,6 +57,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
             }
         } else {
             binding?.editRegisterEmail?.requestFocus()
+            Toast.makeText(requireContext(), "E-mail inválido.", Toast.LENGTH_SHORT).show()
         }
     }
 

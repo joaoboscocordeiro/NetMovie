@@ -10,6 +10,8 @@ import com.jbc.appnetmovie.R
 import com.jbc.appnetmovie.databinding.FragmentForgotBinding
 import com.jbc.appnetmovie.util.BaseFragment
 import com.jbc.appnetmovie.util.StateView
+import com.jbc.appnetmovie.util.hideKeyboard
+import com.jbc.appnetmovie.util.isEmailValid
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
@@ -43,12 +45,14 @@ class ForgotFragment : BaseFragment<FragmentForgotBinding>(
     private fun validData() {
         val email = binding?.editForgotEmail?.text.toString().trim()
 
-        if (email.isNotEmpty()) {
+        if (email.isEmailValid()) {
 
+            hideKeyboard()
             forgot(email)
 
         } else {
             binding?.editForgotEmail?.requestFocus()
+            Toast.makeText(requireContext(), "E-mail inválido.", Toast.LENGTH_SHORT).show()
         }
     }
 
