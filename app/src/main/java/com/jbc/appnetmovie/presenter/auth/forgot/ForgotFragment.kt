@@ -1,7 +1,5 @@
 package com.jbc.appnetmovie.presenter.auth.forgot
 
-import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -25,13 +23,7 @@ class ForgotFragment : BaseFragment<FragmentForgotBinding>(
 
     private val viewModel: ForgotViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        initUi()
-    }
-
-    private fun initUi() {
+    override fun initUI() {
         binding?.btnForgotNext?.setOnClickListener { validData() }
 
         binding?.progress?.let {

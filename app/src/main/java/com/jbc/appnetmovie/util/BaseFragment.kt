@@ -19,7 +19,11 @@ abstract class BaseFragment<T>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = bind(view)
+
+        initUI()
     }
+
+    abstract fun initUI()
 
     override fun onDestroyView() {
         super.onDestroyView()

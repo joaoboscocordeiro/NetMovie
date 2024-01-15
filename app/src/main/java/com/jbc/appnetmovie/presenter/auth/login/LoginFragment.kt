@@ -1,10 +1,9 @@
 package com.jbc.appnetmovie.presenter.auth.login
 
-import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.jbc.appnetmovie.R
 import com.jbc.appnetmovie.databinding.FragmentLoginBinding
@@ -25,13 +24,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
 
     private val viewModel: LoginViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        initUi()
-    }
-
-    private fun initUi() {
+    override fun initUI() {
         binding?.btnLoginSignIn?.setOnClickListener { validData() }
 
         binding?.progress?.let {
@@ -39,6 +32,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
                 .with(requireContext())
                 .load(R.drawable.loading)
                 .into(it)
+        }
+
+        binding?.textForgotLogin?.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_forgotFragment)
         }
     }
 
@@ -67,6 +64,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
                 is StateView.Error -> {
                     binding?.progress?.isVisible = true
                 }
+
                 is StateView.Loading -> {
                     binding?.progress?.isVisible = false
                     Toast.makeText(
@@ -75,6 +73,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+
                 is StateView.Success -> {
                     binding?.progress?.isVisible = false
                     Toast.makeText(
