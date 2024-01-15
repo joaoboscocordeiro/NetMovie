@@ -1,7 +1,5 @@
 package com.jbc.appnetmovie.presenter.auth.register
 
-import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -25,13 +23,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
 
     private val registerViewModel: RegisterViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        initUi()
-    }
-
-    private fun initUi() {
+    override fun initUI() {
         binding?.btnRegisterSignUp?.setOnClickListener { validData() }
 
         binding?.progress?.let {

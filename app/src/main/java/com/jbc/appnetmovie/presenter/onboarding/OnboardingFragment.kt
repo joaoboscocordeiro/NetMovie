@@ -1,7 +1,6 @@
 package com.jbc.appnetmovie.presenter.onboarding
 
-import android.os.Bundle
-import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.jbc.appnetmovie.R
 import com.jbc.appnetmovie.databinding.FragmentOnboardingBinding
 import com.jbc.appnetmovie.util.BaseFragment
@@ -16,13 +15,9 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(
     FragmentOnboardingBinding::bind
 ) {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        initUi()
-    }
-
-    private fun initUi() {
-        TODO("Not yet implemented")
+    override fun initUI() {
+        binding?.btnStart?.setOnClickListener {
+            findNavController().navigate(R.id.action_onboardingFragment_to_authentication)
+        }
     }
 }
