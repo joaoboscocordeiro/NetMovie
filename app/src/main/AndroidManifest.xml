@@ -11,10 +11,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Starting"
+        android:theme="@style/Base.Theme.AppNetMovie"
         tools:targetApi="31">
         <activity
             android:name=".presenter.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presenter.auth.activity.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
