@@ -10,6 +10,7 @@ import com.jbc.appnetmovie.databinding.FragmentLoginBinding
 import com.jbc.appnetmovie.util.BaseFragment
 import com.jbc.appnetmovie.util.StateView
 import com.jbc.appnetmovie.util.hideKeyboard
+import com.jbc.appnetmovie.util.initToolbar
 import com.jbc.appnetmovie.util.isEmailValid
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,6 +26,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
     private val viewModel: LoginViewModel by viewModels()
 
     override fun initUI() {
+
+        binding?.toolbar?.let { initToolbar(it) }
+
         binding?.btnLoginSignIn?.setOnClickListener { validData() }
 
         binding?.progress?.let {

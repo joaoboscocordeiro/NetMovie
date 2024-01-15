@@ -9,6 +9,7 @@ import com.jbc.appnetmovie.databinding.FragmentForgotBinding
 import com.jbc.appnetmovie.util.BaseFragment
 import com.jbc.appnetmovie.util.StateView
 import com.jbc.appnetmovie.util.hideKeyboard
+import com.jbc.appnetmovie.util.initToolbar
 import com.jbc.appnetmovie.util.isEmailValid
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +25,9 @@ class ForgotFragment : BaseFragment<FragmentForgotBinding>(
     private val viewModel: ForgotViewModel by viewModels()
 
     override fun initUI() {
+
+        binding?.toolbar?.let { initToolbar(it) }
+
         binding?.btnForgotNext?.setOnClickListener { validData() }
 
         binding?.progress?.let {

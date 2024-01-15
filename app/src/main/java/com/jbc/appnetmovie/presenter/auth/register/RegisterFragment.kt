@@ -9,6 +9,7 @@ import com.jbc.appnetmovie.databinding.FragmentRegisterBinding
 import com.jbc.appnetmovie.util.BaseFragment
 import com.jbc.appnetmovie.util.StateView
 import com.jbc.appnetmovie.util.hideKeyboard
+import com.jbc.appnetmovie.util.initToolbar
 import com.jbc.appnetmovie.util.isEmailValid
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +25,9 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
     private val registerViewModel: RegisterViewModel by viewModels()
 
     override fun initUI() {
+
+        binding?.toolbar?.let { initToolbar(it) }
+
         binding?.btnRegisterSignUp?.setOnClickListener { validData() }
 
         binding?.progress?.let {
