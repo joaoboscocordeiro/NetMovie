@@ -5,6 +5,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import com.jbc.appnetmovie.R
 
 /*
@@ -19,11 +20,6 @@ fun Fragment.hideKeyboard() {
     }
 }
 
-fun String.isEmailValid(): Boolean {
-    val emailPattern = Regex("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")
-    return emailPattern.matches(this)
-}
-
 fun Fragment.initToolbar(toolbar: Toolbar, showIconNavigation: Boolean = true) {
     (activity as AppCompatActivity).setSupportActionBar(toolbar)
     (activity as AppCompatActivity).title = ""
@@ -36,4 +32,13 @@ fun Fragment.initToolbar(toolbar: Toolbar, showIconNavigation: Boolean = true) {
     toolbar.setNavigationOnClickListener {
         activity?.onBackPressedDispatcher?.onBackPressed()
     }
+}
+
+fun Fragment.showSnackBar(message: Int, duration: Int = Snackbar.LENGTH_SHORT) {
+    view?.let { Snackbar.make(it, message, duration).show() }
+}
+
+fun String.isEmailValid(): Boolean {
+    val emailPattern = Regex("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")
+    return emailPattern.matches(this)
 }

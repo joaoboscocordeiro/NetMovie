@@ -26,6 +26,8 @@
     <!-- Screen Login Fragment -->
     <string name="text_login_to_your_account">Login to Your Account</string>
     <string name="text_forgot_the_password">Forgot the password?</string>
+    <string name="text_email_empty_login_fragment">Digite um email válido.</string>
+    <string name="text_password_empty_login_fragment">Digite uma senha.</string>
 
     <!-- Screen Forgot Fragment -->
     <string name="text_create_your_new_password">Create Your New Password</string>
@@ -37,6 +39,6 @@
     <string name="email_in_use_register_fragment">O endereço de e-mail já está sendo utilizado por outra conta</string>
     <string name="strong_password_register_fragment">A senha deve ter pelo menos 6 caracteres</string>
     <string name="access_to_this_account_has_been_temporarily_disabled">Bloqueámos todos os pedidos deste dispositivo devido a atividade anormal. Tente novamente mais tarde.</string>
-    <string name="error_generic">erro genérico</string>
+    <string name="error_generic">Ocorreu um erro, por favor tente novamente mais tarde.</string>
 
 </resources>

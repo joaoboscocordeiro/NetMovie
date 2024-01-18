@@ -1,17 +1,20 @@
 package com.jbc.appnetmovie.presenter.auth.login
 
-import android.widget.Toast
+import android.content.Intent
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.jbc.appnetmovie.R
 import com.jbc.appnetmovie.databinding.FragmentLoginBinding
+import com.jbc.appnetmovie.framework.network.FirebaseHelper
+import com.jbc.appnetmovie.presenter.MainActivity
 import com.jbc.appnetmovie.util.BaseFragment
 import com.jbc.appnetmovie.util.StateView
 import com.jbc.appnetmovie.util.hideKeyboard
 import com.jbc.appnetmovie.util.initToolbar
 import com.jbc.appnetmovie.util.isEmailValid
+import com.jbc.appnetmovie.util.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
@@ -55,36 +58,30 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
 
             } else {
                 binding?.editLoginPassword?.requestFocus()
+                showSnackBar(message = R.string.text_password_empty_login_fragment)
             }
         } else {
             binding?.editLoginEmail?.requestFocus()
-            Toast.makeText(requireContext(), "E-mail inválido.", Toast.LENGTH_SHORT).show()
+            showSnackBar(message = R.string.text_email_empty_login_fragment)
         }
     }
 
     private fun login(email: String, password: String) {
         viewModel.login(email, password).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
-                is StateView.Error -> {
-                    binding?.progress?.isVisible = true
-                }
-
                 is StateView.Loading -> {
                     binding?.progress?.isVisible = false
-                    Toast.makeText(
-                        requireContext(),
-                        "Usuário logado com sucesso!",
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
 
                 is StateView.Success -> {
                     binding?.progress?.isVisible = false
-                    Toast.makeText(
-                        requireContext(),
-                        "ERRO ao logar usuário!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    startActivity(Intent(requireContext(), MainActivity::class.java))
+                    requireActivity().finish()
+                }
+
+                is StateView.Error -> {
+                    binding?.progress?.isVisible = false
+                    showSnackBar(message = FirebaseHelper.validError(stateView.message ?: ""))
                 }
             }
         }
