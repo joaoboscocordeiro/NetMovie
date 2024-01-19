@@ -1,16 +1,17 @@
 package com.jbc.appnetmovie.presenter.auth.forgot
 
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.jbc.appnetmovie.R
 import com.jbc.appnetmovie.databinding.FragmentForgotBinding
+import com.jbc.appnetmovie.framework.network.FirebaseHelper
 import com.jbc.appnetmovie.util.BaseFragment
 import com.jbc.appnetmovie.util.StateView
 import com.jbc.appnetmovie.util.hideKeyboard
 import com.jbc.appnetmovie.util.initToolbar
 import com.jbc.appnetmovie.util.isEmailValid
+import com.jbc.appnetmovie.util.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
@@ -48,33 +49,25 @@ class ForgotFragment : BaseFragment<FragmentForgotBinding>(
 
         } else {
             binding?.editForgotEmail?.requestFocus()
-            Toast.makeText(requireContext(), "E-mail inválido.", Toast.LENGTH_SHORT).show()
+            showSnackBar(message = R.string.text_email_empty_fragment)
         }
     }
 
     private fun forgot(email: String) {
         viewModel.forgot(email).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
-                is StateView.Error -> {
-                    binding?.progress?.isVisible = true
-                }
-
                 is StateView.Loading -> {
                     binding?.progress?.isVisible = false
-                    Toast.makeText(
-                        requireContext(),
-                        "E-mail enviado com sucesso!",
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
 
                 is StateView.Success -> {
                     binding?.progress?.isVisible = false
-                    Toast.makeText(
-                        requireContext(),
-                        "ERRO ao enviar e-mail!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showSnackBar(message = R.string.text_send_email_success_forget_fragment)
+                }
+
+                is StateView.Error -> {
+                    binding?.progress?.isVisible = true
+                    showSnackBar(message = FirebaseHelper.validError(stateView.message ?: ""))
                 }
             }
         }

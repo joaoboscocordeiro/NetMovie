@@ -58,11 +58,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
 
             } else {
                 binding?.editLoginPassword?.requestFocus()
-                showSnackBar(message = R.string.text_password_empty_login_fragment)
+                showSnackBar(message = R.string.text_password_empty_fragment)
             }
         } else {
             binding?.editLoginEmail?.requestFocus()
-            showSnackBar(message = R.string.text_email_empty_login_fragment)
+            showSnackBar(message = R.string.text_email_empty_fragment)
         }
     }
 

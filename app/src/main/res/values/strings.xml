@@ -7,6 +7,8 @@
     <string name="btn_sign_up">Sign up</string>
     <string name="btn_next">Next</string>
     <string name="btn_sign_in">Sign in</string>
+    <string name="text_email_empty_fragment">Digite um email válido.</string>
+    <string name="text_password_empty_fragment">Digite uma senha.</string>
 
     <!-- Screen Onboarding Fragment -->
     <string name="btn_start">Start</string>
@@ -26,11 +28,10 @@
     <!-- Screen Login Fragment -->
     <string name="text_login_to_your_account">Login to Your Account</string>
     <string name="text_forgot_the_password">Forgot the password?</string>
-    <string name="text_email_empty_login_fragment">Digite um email válido.</string>
-    <string name="text_password_empty_login_fragment">Digite uma senha.</string>
 
     <!-- Screen Forgot Fragment -->
     <string name="text_create_your_new_password">Create Your New Password</string>
+    <string name="text_send_email_success_forget_fragment">Email enviado com sucesso!</string>
 
     <!-- Errors Firebase -->
     <string name="account_not_registered_register_fragment">Não existe nenhum registo que correspondente a este usuário</string>
