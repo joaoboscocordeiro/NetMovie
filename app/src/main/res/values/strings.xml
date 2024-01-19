@@ -7,6 +7,8 @@
     <string name="btn_sign_up">Sign up</string>
     <string name="btn_next">Next</string>
     <string name="btn_sign_in">Sign in</string>
+    <string name="text_email_empty_fragment">Digite um email válido.</string>
+    <string name="text_password_empty_fragment">Digite uma senha.</string>
 
     <!-- Screen Onboarding Fragment -->
     <string name="btn_start">Start</string>
@@ -29,6 +31,7 @@
 
     <!-- Screen Forgot Fragment -->
     <string name="text_create_your_new_password">Create Your New Password</string>
+    <string name="text_send_email_success_forget_fragment">Email enviado com sucesso!</string>
 
     <!-- Errors Firebase -->
     <string name="account_not_registered_register_fragment">Não existe nenhum registo que correspondente a este usuário</string>
@@ -37,6 +40,6 @@
     <string name="email_in_use_register_fragment">O endereço de e-mail já está sendo utilizado por outra conta</string>
     <string name="strong_password_register_fragment">A senha deve ter pelo menos 6 caracteres</string>
     <string name="access_to_this_account_has_been_temporarily_disabled">Bloqueámos todos os pedidos deste dispositivo devido a atividade anormal. Tente novamente mais tarde.</string>
-    <string name="error_generic">erro genérico</string>
+    <string name="error_generic">Ocorreu um erro, por favor tente novamente mais tarde.</string>
 
 </resources>

@@ -1,15 +1,19 @@
 package com.jbc.appnetmovie.presenter.auth.register
 
-import android.widget.Toast
+import android.content.Intent
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.jbc.appnetmovie.R
 import com.jbc.appnetmovie.databinding.FragmentRegisterBinding
+import com.jbc.appnetmovie.framework.network.FirebaseHelper
+import com.jbc.appnetmovie.presenter.MainActivity
 import com.jbc.appnetmovie.util.BaseFragment
 import com.jbc.appnetmovie.util.StateView
 import com.jbc.appnetmovie.util.hideKeyboard
+import com.jbc.appnetmovie.util.initToolbar
 import com.jbc.appnetmovie.util.isEmailValid
+import com.jbc.appnetmovie.util.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
@@ -24,6 +28,9 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
     private val registerViewModel: RegisterViewModel by viewModels()
 
     override fun initUI() {
+
+        binding?.toolbar?.let { initToolbar(it) }
+
         binding?.btnRegisterSignUp?.setOnClickListener { validData() }
 
         binding?.progress?.let {
@@ -46,10 +53,11 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
 
             } else {
                 binding?.editRegisterPassword?.requestFocus()
+                showSnackBar(message = R.string.text_password_empty_fragment)
             }
         } else {
             binding?.editRegisterEmail?.requestFocus()
-            Toast.makeText(requireContext(), "E-mail inválido.", Toast.LENGTH_SHORT).show()
+            showSnackBar(message = R.string.text_email_empty_fragment)
         }
     }
 
@@ -62,20 +70,13 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
 
                 is StateView.Success -> {
                     binding?.progress?.isVisible = false
-                    Toast.makeText(
-                        requireContext(),
-                        "Usuário cadastrado com sucesso!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    startActivity(Intent(requireContext(), MainActivity::class.java))
+                    requireActivity().finish()
                 }
 
                 is StateView.Error -> {
                     binding?.progress?.isVisible = false
-                    Toast.makeText(
-                        requireContext(),
-                        "ERRO ao cadastrar usuário!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showSnackBar(message = FirebaseHelper.validError(stateView.message ?: ""))
                 }
             }
         }
