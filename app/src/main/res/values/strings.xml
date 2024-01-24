@@ -42,4 +42,14 @@
     <string name="access_to_this_account_has_been_temporarily_disabled">Bloqueámos todos os pedidos deste dispositivo devido a atividade anormal. Tente novamente mais tarde.</string>
     <string name="error_generic">Ocorreu um erro, por favor tente novamente mais tarde.</string>
 
+    <!--    BottomBar-->
+    <string name="title_menu_home">Início</string>
+    <string name="title_menu_search">Pesquisar</string>
+    <string name="title_menu_favorite">Favorite</string>
+    <string name="title_menu_download">Baixar</string>
+    <string name="title_menu_profile">Perfil</string>
+
+    <!-- Item Genre -->
+    <string name="text_show_all">Ver todos</string>
+
 </resources>

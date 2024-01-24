@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.jbc.appnetmovie.R
 import com.jbc.appnetmovie.databinding.FragmentRegisterBinding
 import com.jbc.appnetmovie.framework.network.FirebaseHelper
-import com.jbc.appnetmovie.presenter.MainActivity
+import com.jbc.appnetmovie.presenter.main.activity.MainActivity
 import com.jbc.appnetmovie.util.BaseFragment
 import com.jbc.appnetmovie.util.StateView
 import com.jbc.appnetmovie.util.hideKeyboard
