@@ -3,6 +3,7 @@ package com.jbc.core.domain.model
 /*
  * Created by Joao Bosco on 09/02/24.
  */
+@Parcelize
 data class Movie(
     val adult: Boolean?,
     val backdropPath: String?,
@@ -18,4 +19,4 @@ data class Movie(
     val video: Boolean?,
     val voteAverage: Float?,
     val voteCount: Int?
-)
+) : Parcelable
